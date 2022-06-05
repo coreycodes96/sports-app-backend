@@ -1,8 +1,8 @@
 import { Request, Response } from "express";
-import { createAccountValidation } from "../../../validations/createAccount.validation";
-import { generateCode } from "../../../utils/helpers/generateCode";
-import { createUserAccount } from "../../../services/account/CreateAccount/createAccount.service";
-import activateEmail from "../../../emails/activateAccountEmail";
+import { createAccountValidation } from "../../../../validations/createAccount.validation";
+import { generateCode } from "../../../../utils/helpers/generateCode";
+import { createUserAccount } from "../../../../services/api/account/CreateAccount/createAccount.service";
+import activateEmail from "../../../../emails/activateAccountEmail";
 
 export const createAccount = async (req: Request, res: Response): Promise<Response> => {
     const { firstname, surname, username, email, dob, password } = req.body;

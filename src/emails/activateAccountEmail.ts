@@ -1,4 +1,4 @@
-import { transport } from "./config/index.js";
+import { transport } from "./config/index";
 
 const activateEmail = async (email: string, code: number): Promise<void> => {
     const mailOptions = {
