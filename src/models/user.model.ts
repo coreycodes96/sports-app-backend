@@ -67,11 +67,17 @@ export class User {
     @prop({ type: () => Array, default: [] })
     blocked: Array<string>;
 
+    //activated
     @prop({ type: () => Boolean, default: false })
     isActivated: Boolean;
 
+    //activation code
     @prop({ type: () => Number, default: null })
     activationCode: Number | null;
+
+    //forgot password code
+    @prop({ type: () => Number, default: null })
+    forgotPasswordCode: Number | null;
 
     //private
     @prop({ type: () => Boolean, default: false })

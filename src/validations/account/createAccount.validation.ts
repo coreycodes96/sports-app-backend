@@ -38,7 +38,15 @@ export const createAccountValidation = (data: object): { status: boolean, data: 
             .trim()
             .min(1, 'Please enter a password')
             .max(255, 'Your password can\'t be more than 255 characters'),
+        confirmPassword: z.string({
+            required_error: "confirm password is required",
+        })
+            .trim()
+            .min(1, 'Please confirm your password'),
         interests: z.array(z.any()).min(1, 'Please add 1 or more interests'),
+    }).refine((data) => data.password === data.confirmPassword, {
+        message: "Passwords do not match",
+        path: ['confirmPassword'],
     });
 
     try {
