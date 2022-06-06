@@ -24,14 +24,14 @@ const deserializeMiddleware = async (req: Request, res: Response, next: NextFunc
         //If the access token is invalid
         if (error.message === "jwt expired" && refreshToken) {
             //Verifying the refresh token
-            const user: { id: string, username: string } = await verify(refreshToken)
+            const user: { _id: string, username: string } = await verify(refreshToken)
                 .catch((): any =>
                     res.status(401).send("Cannot refresh token")
                 );
 
             //Setting that access token data
-            const tokenData: { id: string, username: string } = {
-                'id': user.id,
+            const tokenData: { _id: string, username: string } = {
+                '_id': user._id,
                 'username': user.username,
             };
 

@@ -2,7 +2,9 @@ import mongoose from "mongoose";
 import { prop, getModelForClass, Passthrough } from "@typegoose/typegoose";
 
 export class User {
+    //_id
     _id: mongoose.Types.ObjectId;
+
     // firstname
     @prop({ type: () => String, required: true })
     firstname: string;
