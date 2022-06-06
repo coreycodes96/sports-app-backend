@@ -2,6 +2,7 @@ import mongoose from "mongoose";
 import { prop, getModelForClass, Passthrough } from "@typegoose/typegoose";
 
 export class User {
+    _id: mongoose.Types.ObjectId;
     // firstname
     @prop({ type: () => String, required: true })
     firstname: string;
@@ -65,6 +66,12 @@ export class User {
     //blocked
     @prop({ type: () => Array, default: [] })
     blocked: Array<string>;
+
+    @prop({ type: () => Boolean, default: false })
+    isActivated: Boolean;
+
+    @prop({ type: () => Number, default: null })
+    activationCode: Number | null;
 
     //private
     @prop({ type: () => Boolean, default: false })
