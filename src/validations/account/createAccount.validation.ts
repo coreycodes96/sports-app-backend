@@ -43,7 +43,7 @@ export const createAccountValidation = (data: object): { status: boolean, data: 
         })
             .trim()
             .min(1, 'Please confirm your password'),
-        interests: z.array(z.any()).min(1, 'Please add 1 or more interests'),
+        interests: z.array(z.string()).min(1, 'Please add 1 or more interests'),
     }).refine((data) => data.password === data.confirmPassword, {
         message: "Passwords do not match",
         path: ['confirmPassword'],
