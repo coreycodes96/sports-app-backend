@@ -9,7 +9,7 @@ export class Post {
     _id: mongoose.Types.ObjectId;
 
     //user
-    @prop({ autopopulate: true, ref: 'User' })
+    @prop({ ref: () => User })
     user: Ref<User>;
 
     //type
