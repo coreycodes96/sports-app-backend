@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import { createPostValidation } from "../../../../../validations/posts/createPost.validation";
-import { addPost } from "../../../../../services/api/user/Posts/AddPosts/addPost.service";
+import { addPost } from "../../../../../services/api/user/Posts/AddPost/addPost.service";
 
 export const createPost = async (req: Request, res: Response): Promise<Response> => {
     const { _id } = res.locals.user;
